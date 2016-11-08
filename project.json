@@ -12,7 +12,8 @@
     "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
     "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
     "Microsoft.Extensions.Configuration.Json": "1.0.0",
-    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0"
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0",
+    "Microsoft.AspNetCore.DataProtection.Extensions": "1.0.0"
   },
 
   "frameworks": {
