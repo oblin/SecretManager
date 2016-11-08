@@ -1,0 +1,35 @@
+{
+  "version": "1.0.0-*",
+  "buildOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.NETCore.App": {
+      "type": "platform",
+      "version": "1.0.0"
+    },
+    "Microsoft.Extensions.Configuration.EnvironmentVariables": "1.0.0",
+    "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0",
+    "Microsoft.Extensions.Configuration.Json": "1.0.0",
+    "Microsoft.Extensions.Configuration.UserSecrets": "1.0.0"
+  },
+
+  "frameworks": {
+    "netcoreapp1.0": {
+      "imports": "dnxcore50"
+    }
+  },
+
+  "userSecretsId": "aspnet-c23d27a4-4b18-9b77-2a93f3b15119",
+  "tools": {
+    "Microsoft.Extensions.SecretManager.Tools": {
+      "version": "1.0.0-preview2-final",
+      "imports": "portable-net45+win8+dnxcore50"
+    }
+  },
+
+  "tooling": {
+    "defaultNamespace": "SecretManager",
+  }
+}
