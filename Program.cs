@@ -13,8 +13,8 @@ namespace SecretManager
             Console.WriteLine($"MySecretKey: {configuration["AppSettings:MySecretKey"]}");
             Console.WriteLine($"Not Exist: {configuration["AppSettings:NotExist"]}");
 
-            string decryptKey = DecryptProtectedKey(configuration["AppSettings:ProtectedKey"]);
-            Console.WriteLine($"Protected Key: {decryptKey}");
+            // string decryptKey = DecryptProtectedKey(configuration["AppSettings:ProtectedKey"]);
+            // Console.WriteLine($"Protected Key: {decryptKey}");
 
             GetProtectedKey();
 
@@ -35,7 +35,9 @@ namespace SecretManager
 
         private static void GetProtectedKey()
         {
+            // Create Method 1:
             // var dataProtectionProvider = DataProtectionProvider.Create(Directory.GetCurrentDirectory());
+            // Create Method 2:
             string destFolder = Path.Combine(
                 Environment.GetEnvironmentVariable("LOCALAPPDATA"),
                 "AppSecrets");
@@ -47,6 +49,8 @@ namespace SecretManager
                     configuration.ProtectKeysWithDpapi();
                 }
             );
+            // Create Method 3:
+            // var dataProtectionProvider = DataProtectionProvider.Create("Secrete-Key");
             var protector = dataProtectionProvider.CreateProtector("General.Protection");
             Console.Write("Enter inputs (empty to leave): ");
             string input = Console.ReadLine();
