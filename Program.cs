@@ -35,8 +35,19 @@ namespace SecretManager
 
         private static void GetProtectedKey()
         {
-            var dataProtectionProvider = DataProtectionProvider.Create(Directory.GetCurrentDirectory());
-            var protector = dataProtectionProvider.CreateProtector("SecretsManager");
+            // var dataProtectionProvider = DataProtectionProvider.Create(Directory.GetCurrentDirectory());
+            string destFolder = Path.Combine(
+                Environment.GetEnvironmentVariable("LOCALAPPDATA"),
+                "AppSecrets");
+            var dataProtectionProvider = DataProtectionProvider.Create(
+                new DirectoryInfo(destFolder),
+                configuration => 
+                {
+                    configuration.SetApplicationName("SecretsManager");
+                    configuration.ProtectKeysWithDpapi();
+                }
+            );
+            var protector = dataProtectionProvider.CreateProtector("General.Protection");
             Console.Write("Enter inputs (empty to leave): ");
             string input = Console.ReadLine();
 
